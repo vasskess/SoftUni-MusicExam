@@ -1,4 +1,5 @@
 from django.urls import path
+from music.my_album.views import *
 
 urlpatterns = (
     path("add/", add_album, name="add-album"),

@@ -4,8 +4,11 @@
 from django.contrib import admin
 from django.urls import path, include
 
+from music.my_profile.views import home_page
+
 urlpatterns = (
     path("admin/", admin.site.urls),
+    path("", home_page, name="home-page"),
     path("album/", include("music.my_album.urls")),
     path("profile/", include("music.my_profile.urls")),
 )
