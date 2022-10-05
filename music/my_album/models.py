@@ -27,6 +27,6 @@ class Album(models.Model):
         max_length=30,
         choices=CHOISES,
     )
-    description = models.CharField(null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
     image_url = models.URLField()
-    price = models.FloatField(MinValueValidator(0.0))
+    price = models.FloatField(validators=[MinValueValidator(0.0)],)
