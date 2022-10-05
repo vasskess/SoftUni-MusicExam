@@ -1,5 +1,3 @@
-
-
 from django.shortcuts import render
 
 from music.my_album.models import Album

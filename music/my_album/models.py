@@ -16,17 +16,25 @@ class Album(models.Model):
         ("Hip Hop Music", "Hip Hop Music"),
         ("Other", "Other"),
     )
+
     album_name = models.CharField(
         max_length=30,
         unique=True,
     )
+
     artist = models.CharField(
         max_length=30,
     )
+
     genre = models.CharField(
         max_length=30,
         choices=CHOISES,
     )
+
     description = models.TextField(null=True, blank=True)
+
     image_url = models.URLField()
-    price = models.FloatField(validators=[MinValueValidator(0.0)],)
+
+    price = models.FloatField(
+        validators=[MinValueValidator(0.0)],
+    )
