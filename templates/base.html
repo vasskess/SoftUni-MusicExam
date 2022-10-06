@@ -19,9 +19,11 @@
             <a href="{% url "home-page" %}">Home</a>
             <ul></ul>
             <ul>
+                {% if user %}
                 <!--Only for user with created profile-->
                 <li><a href="{% url "add-album" %}">Create Album</a></li>
                 <li><a href="{% url "profile-details" %}">Profile</a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>
