@@ -33,8 +33,8 @@ class Album(models.Model):
 
     description = models.TextField(null=True, blank=True)
 
-    image_url = models.URLField()
+    image_url = models.URLField(verbose_name="Image URL")
 
     price = models.FloatField(
-        validators=[MinValueValidator(0.0)],
+        validators=[MinValueValidator(0.0, message="The price cannot be below 0.0")],
     )
