@@ -6,29 +6,46 @@ from django.db import models
 
 
 class Album(models.Model):
-    CHOISES = (
-        ("Pop Music", "Pop Music"),
-        ("Jazz Music", "Jazz Music"),
-        ("R&B Music", "R&B Music"),
-        ("Rock Music", "Rock Music"),
-        ("Country Music", "Country Music"),
-        ("Dance Music", "Dance Music"),
-        ("Hip Hop Music", "Hip Hop Music"),
-        ("Other", "Other"),
+    ALBUM_NAME_MAX_LEN = 30
+
+    ARTIST_MAX_LEN = 30
+
+    GENRE_MAX_LEN = 30
+
+    MIN_PRICE_VALUE = 0.0
+
+    POP_MUSIC = "Pop Music"
+    JAZZ_MUSIC = "Jazz Music"
+    RNB_NUSIC = "R&B Music"
+    ROCK_MUSIC = "Rock Music"
+    COUNTRY_MUSIC = "Country Music"
+    DANCE_MUSIC = "Dance Music"
+    HIPHOP_MUSIC = "Hip Hop Music"
+    OTHER = "Other"
+
+    CHOICES = (
+        (POP_MUSIC, POP_MUSIC),
+        (JAZZ_MUSIC, JAZZ_MUSIC),
+        (RNB_NUSIC, RNB_NUSIC),
+        (ROCK_MUSIC, ROCK_MUSIC),
+        (COUNTRY_MUSIC, COUNTRY_MUSIC),
+        (DANCE_MUSIC, DANCE_MUSIC),
+        (HIPHOP_MUSIC, HIPHOP_MUSIC),
+        (OTHER, OTHER),
     )
 
     album_name = models.CharField(
-        max_length=30,
+        max_length=ALBUM_NAME_MAX_LEN,
         unique=True,
     )
 
     artist = models.CharField(
-        max_length=30,
+        max_length=ARTIST_MAX_LEN,
     )
 
     genre = models.CharField(
-        max_length=30,
-        choices=CHOISES,
+        max_length=GENRE_MAX_LEN,
+        choices=CHOICES,
     )
 
     description = models.TextField(null=True, blank=True)
@@ -36,5 +53,5 @@ class Album(models.Model):
     image_url = models.URLField(verbose_name="Image URL")
 
     price = models.FloatField(
-        validators=[MinValueValidator(0.0, message="The price cannot be below 0.0")],
+        validators=[MinValueValidator(MIN_PRICE_VALUE, message=f"The price cannot be below {MIN_PRICE_VALUE}")],
     )

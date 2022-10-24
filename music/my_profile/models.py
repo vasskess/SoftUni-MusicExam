@@ -3,10 +3,15 @@ from django.db import models
 
 
 class Profile(models.Model):
+    USERNAME_MAX_LEN = 15
+    USERNAME_MIN_LEN = 2
+
+    AGE_MIN_VALUE = 0
+
     username = models.CharField(
-        max_length=15,
+        max_length=USERNAME_MAX_LEN,
         validators=[
-            MinLengthValidator(2),
+            MinLengthValidator(USERNAME_MIN_LEN),
             RegexValidator(
                 "^\\w+$",
                 message="Ensure this value contains only letters, numbers, and underscore.",
@@ -15,7 +20,7 @@ class Profile(models.Model):
     )
     email = models.EmailField()
     age = models.IntegerField(
-        validators=(MinValueValidator(0),),
+        validators=(MinValueValidator(AGE_MIN_VALUE),),
         null=True,
         blank=True,
     )
