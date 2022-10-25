@@ -6,7 +6,7 @@
 
             <div class="albumCover">
                 <!-- Album Image -->
-                <img src="{{ album.image_url }}" alt="Cover Image">
+                <img src="{{ album.image_url }}" alt="{{ album.album_name }}">
             </div>
 
             <div class="albumInfo">
@@ -24,8 +24,8 @@
 
                 <div class="actionBtn">
                     <!-- Album Buttons -->
-                    <a href="{% url "edit-album" album.id %}" class="edit">Edit</a>
-                    <a href="{% url "delete-album" album.id %}" class="remove">Delete</a>
+                    <a href="{% url "edit-album" pk=album.pk %}" class="edit">Edit</a>
+                    <a href="{% url "delete-album" pk=album.pk %}" class="remove">Delete</a>
                 </div>
 
             </div>

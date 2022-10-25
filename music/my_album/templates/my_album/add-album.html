@@ -3,7 +3,7 @@
     <!--Create Page-->
     <section class="createPage">
 
-        <form method="POST">
+        <form method="post" action={% url "add-album" %}>
             {% csrf_token %}
             <fieldset>
                 <legend>Add Album</legend>

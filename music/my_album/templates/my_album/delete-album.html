@@ -2,7 +2,7 @@
 {% block content %}
     <!--Edit Page-->
     <section class="editPage">
-        <form method="POST">
+        <form method="post" action="{% url "delete-album" pk=album.pk %}">
             {% csrf_token %}
             <fieldset>
                 <legend>Delete Album</legend>
