@@ -5,7 +5,7 @@ from django.db import models
 class Profile(models.Model):
     USERNAME_MAX_LEN = 15
     USERNAME_MIN_LEN = 2
-
+    USERNAME_ERROR = "Ensure this value contains only letters, numbers, and underscore."
     AGE_MIN_VALUE = 0
 
     username = models.CharField(
@@ -14,7 +14,7 @@ class Profile(models.Model):
             MinLengthValidator(USERNAME_MIN_LEN),
             RegexValidator(
                 "^\\w+$",
-                message="Ensure this value contains only letters, numbers, and underscore.",
+                message=USERNAME_ERROR,
             ),
         ],
     )

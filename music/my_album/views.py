@@ -40,7 +40,9 @@ def delete_album(request, pk):
     form = AlbumDeleteAlbum(instance=album)
 
     if request.method == "POST":
-        album.delete()
-        return redirect("home-page")
+        form = AlbumDeleteAlbum(request.POST, instance=album)
+        if form.is_valid():
+            form.save()
+            return redirect("home-page")
     context = {"form": form, "album": album}
     return render(request, "my_album/delete-album.html", context)
