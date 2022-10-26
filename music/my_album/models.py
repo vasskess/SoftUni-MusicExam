@@ -17,7 +17,7 @@ class Album(models.Model):
 
     POP_MUSIC = "Pop Music"
     JAZZ_MUSIC = "Jazz Music"
-    RNB_NUSIC = "R&B Music"
+    RNB_MUSIC = "R&B Music"
     ROCK_MUSIC = "Rock Music"
     COUNTRY_MUSIC = "Country Music"
     DANCE_MUSIC = "Dance Music"
@@ -27,7 +27,7 @@ class Album(models.Model):
     CHOICES = (
         (POP_MUSIC, POP_MUSIC),
         (JAZZ_MUSIC, JAZZ_MUSIC),
-        (RNB_NUSIC, RNB_NUSIC),
+        (RNB_MUSIC, RNB_MUSIC),
         (ROCK_MUSIC, ROCK_MUSIC),
         (COUNTRY_MUSIC, COUNTRY_MUSIC),
         (DANCE_MUSIC, DANCE_MUSIC),

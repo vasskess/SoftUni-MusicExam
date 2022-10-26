@@ -1,16 +1,16 @@
 from django.shortcuts import render, redirect
 
 from music.my_album.models import Album
-from music.my_profile.forms import ProfileForm, DeleteProfileForm
+from music.my_profile.forms import CreateProfileForm, DeleteProfileForm
 from music.my_profile.models import Profile
 
 
 def home_page(request):
     user = Profile.objects.first()
     if not user:
-        form = ProfileForm()
+        form = CreateProfileForm()
         if request.method == "POST":
-            form = ProfileForm(request.POST)
+            form = CreateProfileForm(request.POST)
             if form.is_valid():
                 form.save()
                 return render(request, "my_profile/home-with-profile.html")

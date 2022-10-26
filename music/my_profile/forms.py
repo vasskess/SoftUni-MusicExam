@@ -5,7 +5,7 @@ from music.my_album.models import Album
 from music.my_profile.models import Profile
 
 
-class ProfileForm(ModelForm):
+class ProfileBaseForm(ModelForm):
     class Meta:
         model = Profile
         fields = "__all__"
@@ -16,7 +16,11 @@ class ProfileForm(ModelForm):
         }
 
 
-class DeleteProfileForm(ProfileForm):
+class CreateProfileForm(ProfileBaseForm):
+    pass
+
+
+class DeleteProfileForm(ProfileBaseForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.__hide_fields()
