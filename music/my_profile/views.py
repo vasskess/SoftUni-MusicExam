@@ -31,7 +31,7 @@ def profile_details(request):
 
 def delete_profile(request):
     profile = Profile.objects.first()
-    form = DeleteProfileForm(request.POST, instance=profile)
+    form = DeleteProfileForm(instance=profile)
 
     if request.method == "POST":
         form = DeleteProfileForm(request.POST, instance=profile)
